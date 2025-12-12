@@ -4,21 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Support Center</title>
+    <title>Help Center</title>
     <style>
-        /* --- 1. VARIABLES & RESET --- */
-        :root {
-            --bg-body: #000000;
-            --bg-card: #141414;
-            --text-main: #FFFFFF;
-            --text-muted: #B3B3B3;
-            --brand-green: #00C805;
-            /* Màu xanh "thương hiệu" */
-            --brand-green-hover: #00b304;
-            --border-color: #2A2A2A;
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
+        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
@@ -26,456 +17,203 @@
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: var(--font-main);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            padding-bottom: 80px;
-            /* Chừa chỗ cho nút gọi Mobile */
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7faff;
+            /* Light blue-white background */
+            color: #1d3557;
+            line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.2s;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- 2. UTILITY CLASSES --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .hidden-mobile {
-            display: block;
-        }
-
-        .hidden-desktop {
-            display: none;
-        }
-
-        /* --- 3. HEADER --- */
-        header {
-            padding: 20px 0;
-            background: var(--bg-body);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-            background-color: var(--text-main);
-            /* Logo giả lập */
-            border-radius: 50%;
-            /* Hình tròn đơn giản */
-            mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2zm0 5l6 15H6l6-15z"/></svg>') center/contain no-repeat;
-            -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2zm0 5l6 15H6l6-15z"/></svg>') center/contain no-repeat;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        .nav-links a:hover {
-            color: var(--brand-green);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .call-desktop {
-            font-weight: 600;
-            color: var(--brand-green);
-        }
-
-        .btn-login {
-            padding: 10px 24px;
-            border-radius: 24px;
-            font-weight: 600;
-            font-size: 14px;
-            border: 1px solid var(--text-main);
-        }
-
-        .btn-login:hover {
-            background: var(--text-main);
-            color: #000;
-        }
-
-        /* --- 4. HERO SECTION --- */
+        /* Hero Section (Blue Gradient) */
         .hero {
-            padding: 80px 0 60px;
+            background: linear-gradient(90deg, #007bff, #00c6ff);
+            border-radius: 0 0 25px 25px;
+            padding: 3rem 1.5rem 6rem 1.5rem;
             text-align: center;
+            color: white;
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
+            font-size: 2.5rem;
+            font-weight: 700;
         }
 
-        .hero h2 {
-            font-size: 24px;
-            font-weight: 400;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto;
+        /* Support Box (White Card) */
+        .support-box {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 650px;
+            margin: -4rem auto 0 auto;
+            /* Negative margin to overlap hero */
             position: relative;
+            z-index: 10;
         }
 
-        .search-bar {
-            width: 100%;
-            padding: 16px 24px 16px 50px;
-            font-size: 18px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-card);
-            color: var(--text-main);
-            outline: none;
-            transition: border-color 0.2s;
+        .support-box h2 {
+            font-size: 2rem;
+            color: #0052FF;
+            margin-bottom: 1rem;
         }
 
-        .search-bar:focus {
-            border-color: var(--brand-green);
+        .support-box p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 500px;
+            margin: 0 auto 1.5rem auto;
         }
 
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
+        /* --- Call Button (THEO YÊU CẦU MỚI) --- */
+        .call-btn {
+            display: inline-block;
+            /* Nền xanh gradient giống hero */
+            background: linear-gradient(90deg, #007bff, #00c6ff);
+            color: #ffffff;
+            /* Chữ trắng */
+            padding: 0.9rem 1.8rem;
+            border: none;
+            border-radius: 50px;
+            /* Bo tròn */
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* --- 5. TOPICS GRID --- */
-        .topics-grid {
+        .call-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        /* "How We Can Help" Section */
+        .help-section {
+            padding: 3rem 1.5rem 2rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .help-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            color: #1d3557;
+            margin-bottom: 2rem;
+        }
+
+        .help-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            /* 3 Cột Desktop */
-            gap: 32px;
-            padding-bottom: 80px;
+            gap: 1.5rem;
         }
 
-        .topic-column h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border-left: 3px solid var(--brand-green);
-            padding-left: 12px;
+        .help-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .topic-column ul li {
-            margin-bottom: 14px;
+        .help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .topic-column ul li a {
-            color: var(--text-muted);
-            font-size: 15px;
-            display: block;
-            padding: 4px 0;
-        }
-
-        .topic-column ul li a:hover {
-            color: var(--brand-green);
-            transform: translateX(4px);
-        }
-
-        .view-all {
-            color: var(--text-main) !important;
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 8px;
-            display: inline-block;
-        }
-
-        /* --- 6. FOOTER --- */
+        /* Footer */
         .footer {
-            background-color: var(--bg-card);
-            padding: 60px 0 40px;
-            border-top: 1px solid var(--border-color);
-            font-size: 13px;
-            color: #777;
+            background: #0a0f14;
+            /* Dark background */
+            color: #a0aec0;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
         }
 
-        .footer-disclaimer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
-
-        .footer-disclaimer p {
-            margin-bottom: 12px;
-            text-align: justify;
-        }
-
-        /* --- 7. MOBILE STICKY CALL BUTTON --- */
-        .mobile-sticky-bar {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            background-color: var(--brand-green);
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 200, 5, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            z-index: 999;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        .mobile-sticky-bar:active {
-            transform: translateX(-50%) scale(0.95);
-        }
-
-        .sticky-content {
-            color: #000;
-            font-weight: 700;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* --- 8. RESPONSIVE MEDIA QUERIES --- */
-        @media (max-width: 768px) {
-
-            .nav-links,
-            .nav-actions .btn-login,
-            .call-desktop {
-                display: none;
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .help-grid {
+                grid-template-columns: 1fr 1fr;
+                /* 2 cột trên tablet */
             }
+        }
 
-            /* Ẩn menu thừa trên mobile */
-            .hidden-mobile {
-                display: none;
-            }
-
-            .hidden-desktop {
-                display: flex;
-            }
-
-            .topics-grid {
-                grid-template-columns: 1fr;
-                /* 1 Cột Mobile */
-                gap: 40px;
-            }
-
+        @media (max-width: 600px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 2rem;
             }
 
-            .hero {
-                padding: 40px 0;
+            .support-box {
+                margin: -4rem auto 0 auto;
+                padding: 2rem 1.5rem;
             }
 
-            .container {
-                padding: 0 20px;
+            .support-box h2 {
+                font-size: 1.8rem;
             }
 
-            /* Topic Card Style on Mobile to look like buttons */
-            .topic-column h3 {
-                background: var(--bg-card);
-                padding: 15px;
-                margin: 0;
-                border-radius: 8px;
-                border-left: none;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border: 1px solid var(--border-color);
+            .help-grid {
+                grid-template-columns: 1fr;
+                /* 1 cột trên mobile */
             }
 
-            .topic-column ul {
-                margin-top: 10px;
-                padding-left: 10px;
+            .call-btn {
+                width: 100%;
+                /* Nút full-width trên mobile */
+                padding: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <header>
-        <div class="container header-inner">
-            <a href="#" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-green);">
-                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-                    <line x1="16" y1="8" x2="2" y2="22"></line>
-                    <line x1="17.5" y1="15" x2="9" y2="15"></line>
-                </svg>
-                Platform Support
-            </a>
-
-            <nav class="nav-links hidden-mobile">
-                <a href="#">Features</a>
-                <a href="#">Security</a>
-                <a href="#">Resources</a>
-                <a href="#">Help</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="tel:+1-866-323-9574" class="call-desktop hidden-mobile">
-                    Need Help? +1-866-323-9574
-                </a>
-                <a href="tel:+1-866-323-9574" class="btn-login">Log In</a>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <section class="hero container">
+        <section class="hero">
             <h1>Help Center</h1>
-            <h2>How can we assist with your account today?</h2>
-
-            <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="search" class="search-bar"
-                    placeholder="Call us now at +1-866-323-9574 for immediate support">
-            </div>
         </section>
 
-        <section class="container topics-grid">
-            <div class="topic-column">
-                <h3>Getting Started</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">Platform Setup FAQ</a></li>
-                    <li><a href="tel:+18884003901">Verification Requirements</a></li>
-                    <li><a href="tel:+18884003901">Available Markets</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
-            </div>
+        <section class="support-box">
+            <h2>24/7 Customer Support</h2>
+            <p>Need help with your Coinbase account or crypto transactions? Our support team is available around the
+                clock to guide you with security, payments, and account issues.</p>
 
-            <div class="topic-column">
-                <h3>Account & Login</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">Recover Password</a></li>
-                    <li><a href="tel:+18884003901">2-Factor Authentication</a></li>
-                    <li><a href="tel:+18884003901">Unrecognized Device Alert</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
-            </div>
+            <a href="tel:1-866-323-9574" class="call-btn">+1-866-323-9574</a>
+        </section>
 
-            <div class="topic-column">
-                <h3>Funds & Banking</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">Link Bank Account</a></li>
-                    <li><a href="tel:+18884003901">Instant Deposit Issues</a></li>
-                    <li><a href="tel:+18884003901">Withdrawal Status</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
-            </div>
-
-            <div class="topic-column">
-                <h3>Tax & Documents</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">Form 1099 Information</a></li>
-                    <li><a href="tel:+18884003901">Monthly Statements</a></li>
-                    <li><a href="tel:+18884003901">Tax Reporting FAQ</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
-            </div>
-
-            <div class="topic-column">
-                <h3>App Troubleshooting</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">App Crashing/Freezing</a></li>
-                    <li><a href="tel:+18884003901">Update Errors</a></li>
-                    <li><a href="tel:+18884003901">Notification Settings</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
-            </div>
-
-            <div class="topic-column">
-                <h3>Security Priority</h3>
-                <ul>
-                    <li><a href="tel:+18884003901">Report Suspicious Activity</a></li>
-                    <li><a href="tel:+18884003901">Lock/Unlock Account</a></li>
-                    <li><a href="tel:+18884003901">Identity Verification</a></li>
-                    <li><a href="tel:+18884003901" class="view-all">View all →</a></li>
-                </ul>
+        <section class="help-section">
+            <h2>How We Can Help</h2>
+            <div class="help-grid">
+                <div class="help-card">
+                    Account setup and verification
+                </div>
+                <div class="help-card">
+                    Buying, selling, or transferring
+                </div>
+                <div class="help-card">
+                    Wallet security and recovery
+                </div>
+                <div class="help-card">
+                    Transaction disputes or errors
+                </div>
+                <div class="help-card">
+                    Two-factor authentication support
+                </div>
+                <div class="help-card">
+                    General crypto education
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-disclaimer">
-                <p><strong>Disclaimer:</strong> We are an independent third-party technical support service provider for
-                    various trading and financial platforms. We are not affiliated, associated, authorized, endorsed by,
-                    or in any way officially connected with any specific trading platform, or any of their subsidiaries
-                    or its affiliates. The official websites of these platforms can be found at their respective
-                    domains.</p>
-                <p>All product and company names are trademarks™ or registered® trademarks of their respective holders.
-                    Use of them does not imply any affiliation with or endorsement by them. Our services are strictly
-                    limited to technical assistance, troubleshooting, and educational guidance.</p>
-                <p>© 2025 Platform Support Center. All rights reserved.</p>
-            </div>
-        </div>
+        © 2025 Coinbase Support – This page provides customer support information only.
     </footer>
 
-    <a href="tel:+18884003901" class="mobile-sticky-bar hidden-desktop">
-        <div class="sticky-content">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.057 15.057 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.59 3.99C8.59 3.44 8.14 3 7.59 3H4.03C3.48 3 3 3.44 3 3.99 3 13.28 10.73 21 20.01 21c.55 0 .99-.44.99-.99v-3.56c0-.55-.44-.99-.99-.99z" />
-            </svg>
-            <span>Call Support Now</span>
-        </div>
-    </a>
-
-    <script>
-        // Simple JS to handle potential URL parameters or tracking if needed later
-        console.log("Support Center Loaded. Ready for calls.");
-
-        // Optional: Auto-focus search bar on desktop load
-        if (window.innerWidth > 768) {
-            document.querySelector('.search-bar').focus();
-        }
-    </script>
 </body>
 
 </html>
