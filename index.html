@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Center</title>
+    <title>Robinhood Help Center</title>
     <style>
-        /* Google Font */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
         /* CSS Reset */
         * {
@@ -16,204 +17,277 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-dark: #0A0D0F;
+            /* Nền tối chính */
+            --bg-card: #0C0D0F;
+            /* Nền card, hơi đậm hơn chút */
+            --robinhood-green: #00C805;
+            /* Màu xanh lá nổi bật */
+            --text-light: #FFFFFF;
+            --text-secondary: #909090;
+            /* Văn bản xám nhạt */
+            --text-dark-secondary: #404040;
+            /* Văn bản xám đậm cho nền sáng (nếu có) */
+            --border-dark: #202020;
+            /* Đường viền tối */
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7faff;
-            /* Light blue-white background */
-            color: #1d3557;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Chiếm toàn bộ chiều cao màn hình */
+            padding: 20px;
+            /* Padding tổng thể */
         }
 
-        /* Hero Section (Blue Gradient) */
-        .hero {
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            border-radius: 0 0 25px 25px;
-            padding: 3rem 1.5rem 6rem 1.5rem;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        /* Support Box (White Card) */
-        .support-box {
-            background: #ffffff;
+        .main-content-wrapper {
+            background-color: var(--bg-dark);
+            width: 100%;
+            max-width: 900px;
+            /* Giới hạn chiều rộng nội dung chính */
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
-            text-align: center;
-            max-width: 650px;
-            margin: -4rem auto 0 auto;
-            /* Negative margin to overlap hero */
-            position: relative;
-            z-index: 10;
+            /* Bo tròn các góc */
+            overflow: hidden;
+            /* Đảm bảo nội dung không tràn ra ngoài */
         }
 
-        .support-box h2 {
-            font-size: 2rem;
-            color: #0052FF;
+        .container {
+            width: 100%;
+            max-width: 700px;
+            /* Container cho các phần bên trong */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-light);
+            line-height: 1.3;
             margin-bottom: 1rem;
         }
 
-        .support-box p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            max-width: 500px;
-            margin: 0 auto 1.5rem auto;
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
         }
 
-        /* --- Call Button (THEO YÊU CẦU MỚI) --- */
+        a {
+            text-decoration: none;
+            color: var(--robinhood-green);
+        }
+
+        /* --- Global Help Center Title --- */
+        .global-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--robinhood-green);
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 200, 5, 0.1);
+            /* Bóng nhẹ màu xanh lá */
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 2rem auto;
+        }
+
         .call-btn {
-            display: inline-block;
-            /* Nền xanh gradient giống hero */
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            color: #ffffff;
-            /* Chữ trắng */
-            padding: 0.9rem 1.8rem;
-            border: none;
+            display: inline-flex;
+            /* Sử dụng flex để căn icon và text */
+            align-items: center;
+            background-color: var(--robinhood-green);
+            color: var(--bg-dark);
+            /* Chữ tối trên nền xanh */
+            padding: 1rem 2rem;
             border-radius: 50px;
-            /* Bo tròn */
             font-size: 1.1rem;
             font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+            white-space: nowrap;
+            /* Ngăn không cho số điện thoại bị ngắt dòng */
+            gap: 0.5rem;
+            /* Khoảng cách giữa icon và text */
         }
 
         .call-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+            background-color: #00e005;
+            /* Xanh sáng hơn khi hover */
+            transform: translateY(-2px);
         }
 
-        /* "How We Can Help" Section */
-        .help-section {
-            padding: 3rem 1.5rem 2rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
+        .call-btn svg {
+            fill: var(--bg-dark);
+            /* Màu icon */
+            width: 20px;
+            height: 20px;
         }
 
-        .help-section h2 {
-            font-size: 2rem;
+        /* --- Explore Topics Section --- */
+        .topics-section {
             text-align: center;
-            color: #1d3557;
+            margin-bottom: 3rem;
+        }
+
+        .topics-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 2rem;
         }
 
-        .help-grid {
+        .topic-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Responsive grid */
             gap: 1.5rem;
         }
 
-        .help-card {
-            background: #ffffff;
+        .topic-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-dark);
             border-radius: 10px;
-            padding: 2rem;
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .help-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        .footer {
-            background: #0a0f14;
-            /* Dark background */
-            color: #a0aec0;
-            text-align: center;
             padding: 1.5rem;
-            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: background-color 0.3s, border-color 0.3s;
+            display: block;
+            /* Đảm bảo cả card là một link */
+        }
+
+        .topic-card:hover {
+            background-color: #1a1a1a;
+            border-color: var(--robinhood-green);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
             font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .help-grid {
-                grid-template-columns: 1fr 1fr;
-                /* 2 cột trên tablet */
-            }
+        .footer span {
+            font-family: 'Roboto Mono', monospace;
+            /* Font monospace cho năm */
         }
 
+        /* --- Responsive Design --- */
         @media (max-width: 600px) {
-            .hero h1 {
+            body {
+                padding: 10px;
+            }
+
+            .main-content-wrapper {
+                border-radius: 0;
+                /* Bỏ bo tròn trên mobile full-width */
+            }
+
+            .global-title {
                 font-size: 2rem;
+                margin-bottom: 1.5rem;
             }
 
-            .support-box {
-                margin: -4rem auto 0 auto;
-                padding: 2rem 1.5rem;
+            .hero {
+                padding: 2rem 1rem;
             }
 
-            .support-box h2 {
-                font-size: 1.8rem;
+            .hero h2 {
+                font-size: 1.5rem;
             }
 
-            .help-grid {
-                grid-template-columns: 1fr;
-                /* 1 cột trên mobile */
+            .hero p {
+                font-size: 1rem;
             }
 
             .call-btn {
-                width: 100%;
-                /* Nút full-width trên mobile */
-                padding: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .topics-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+                /* 1 cột trên màn hình nhỏ */
+            }
+
+            .topic-card {
+                padding: 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <section class="hero">
-            <h1>Help Center</h1>
-        </section>
+    <div class="main-content-wrapper">
+        <header class="container">
+            <h1 class="global-title">Help Center</h1>
+        </header>
 
-        <section class="support-box">
-            <h2>24/7 Customer Support</h2>
-            <p>Need help with your Coinbase account or crypto transactions? Our support team is available around the
-                clock to guide you with security, payments, and account issues.</p>
+        <main class="container">
+            <section class="hero">
+                <h2>We're Here to Help</h2>
+                <p>Whether it's an account query or a product glitch, our team's always online, ready to make things
+                    right — fast, friendly, and transparent.</p>
+                <a href="tel:+1-877-513-0896" class="call-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M6.62 10.79a15.865 15.865 0 006.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25.86.22 1.78.34 2.72.34a1 1 0 001 1v3a1 1 0 00-1 1c-1.88 0-3.7-.48-5.38-1.35-1.57-1.12-2.96-2.51-4.08-4.08C3.88 12.3 3.4 10.48 3.4 8.62a1 1 0 001-1h3a1 1 0 001 1c0 .94.12 1.86.34 2.72.11.35.03.74-.25 1.02l-2.2 2.2zM20 3h-3a1 1 0 00-1 1c0 2.2-1.8 4-4 4s-4-1.8-4-4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 1.88.48 3.7 1.35 5.38 1.12 1.57 2.51 2.96 4.08 4.08C10.3 20.12 12.12 20.6 14 20.6a1 1 0 001-1v-3a1 1 0 00-1-1c-2.2 0-4-1.8-4-4s1.8-4 4-4a1 1 0 001-1V3z" />
+                    </svg>
+                    Contact: +1-877-513-0896
+                </a>
+            </section>
 
-            <a href="tel:1-877-513-0896" class="call-btn">+1-877-513-0896</a>
-        </section>
+            <section class="topics-section">
+                <h2>Explore Help Topics</h2>
+                <div class="topic-grid">
+                    <a href="#" class="topic-card">Account & Security</a>
+                    <a href="#" class="topic-card">Payments & Refunds</a>
+                    <a href="#" class="topic-card">Orders & Delivery</a>
+                    <a href="#" class="topic-card">App & Tech Support</a>
+                    <a href="#" class="topic-card">Product Information</a>
+                    <a href="#" class="topic-card">General Assistance</a>
+                </div>
+            </section>
+        </main>
 
-        <section class="help-section">
-            <h2>How We Can Help</h2>
-            <div class="help-grid">
-                <div class="help-card">
-                    Account setup and verification
-                </div>
-                <div class="help-card">
-                    Buying, selling, or transferring
-                </div>
-                <div class="help-card">
-                    Wallet security and recovery
-                </div>
-                <div class="help-card">
-                    Transaction disputes or errors
-                </div>
-                <div class="help-card">
-                    Two-factor authentication support
-                </div>
-                <div class="help-card">
-                    General crypto education
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        © 2025 Coinbase Support – This page provides customer support information only.
-    </footer>
-
+        <footer class="footer container">
+            <p>&copy; <span>2025</span> Help Center — Empowering you, one tap at a time.</p>
+        </footer>
+    </div>
 </body>
 
 </html>
